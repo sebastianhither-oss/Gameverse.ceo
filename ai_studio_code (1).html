@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GAMEVERSE: El portal definitivo de videojuegos. Análisis profundo de la industria, historia, tecnología AAA y AA, y bases de datos exhaustivas.">
+    <meta name="keywords" content="videojuegos, AAA, AA, historia gaming, Unreal Engine, PS5, Xbox Series X, PC Gamer">
+    <meta name="author" content="Nasly Saray Medina, Sebastian Hither">
+    <title>GAMEVERSE | El Epicentro de la Cultura Gamer</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GAMEVERSE - Portal Profesional de Videojuegos">
+    <meta property="og:description" content="Explora la evolución de la industria, desde 1958 hasta el futuro de 2026.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --card-bg: rgba(20, 20, 25, 0.7);
+            --neon-blue: #00f2ff;
+            --neon-purple: #7000ff;
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+            --glass: rgba(255, 255, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+
+        /* NAVBAR GLASSMORPHISM */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass);
+        }
+
+        .logo { font-size: 1.8rem; font-weight: 900; background: linear-gradient(to right, var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 5rem; margin-bottom: 10px; text-shadow: 0 0 20px var(--neon-blue); }
+        .hero p { font-size: 1.5rem; color: var(--text-dim); max-width: 800px; margin-bottom: 30px; }
+
+        /* BOTONES ANIMADOS */
+        .btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .btn-primary { background: var(--neon-purple); color: white; border: none; box-shadow: 0 0 15px var(--neon-purple); }
+        .btn-primary:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--neon-purple); }
+
+        /* SECCIONES EDITORIALES */
+        .container { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; border-left: 5px solid var(--neon-blue); padding-left: 20px; }
+
+        /* TARJETAS MODERNAS */
+        .game-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .game-card:hover { transform: translateY(-15px); border-color: var(--neon-blue); }
+
+        .game-card img { width: 100%; height: 250px; object-fit: cover; }
+
+        .card-content { padding: 25px; }
+
+        .badge { background: var(--neon-blue); color: #000; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+
+        /* HISTORIA TIMELINE */
+        .timeline { position: relative; padding: 40px 0; }
+        .timeline-item { margin-bottom: 40px; padding-left: 40px; border-left: 2px solid var(--neon-purple); position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -10px; top: 0; width: 18px; height: 18px; background: var(--neon-blue); border-radius: 50%; }
+
+        /* FOOTER */
+        footer { background: #020202; padding: 80px 50px; border-top: 1px solid var(--glass); text-align: center; }
+
+        /* ANIMACIONES SCROLL */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GAMEVERSE</div>
+        <div class="menu">
+            <a href="#historia" style="color: white; margin-left: 20px; text-decoration: none;">Historia</a>
+            <a href="#articulos" style="color: white; margin-left: 20px; text-decoration: none;">AAA vs AA</a>
+            <a href="#ranking" style="color: white; margin-left: 20px; text-decoration: none;">Top 30</a>
+            <a href="#contacto" style="color: white; margin-left: 20px; text-decoration: none;">Contacto</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="reveal">EL UNIVERSO GAMER</h1>
+        <p class="reveal">Análisis técnico, historia profunda y el catálogo definitivo de la industria de los videojuegos.</p>
+        <div class="reveal">
+            <a href="#ranking" class="btn btn-primary">EXPLORAR RANKING</a>
+            <a href="#articulos" class="btn" style="border: 1px solid white; color: white;">LEER SOBRE AAA</a>
+        </div>
+    </header>
+
+    <section class="container reveal" id="historia">
+        <h2 class="section-title">La Odisea del Código: 1958 - 2026</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>1958: El Chispazo Inicial</h3>
+                <p>William Higinbotham crea <strong>Tennis for Two</strong> en un osciloscopio. No fue un producto comercial, sino un experimento científico que sentó las bases de la interactividad visual.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>1972: La Era del Arcade y Magnavox</h3>
+                <p>Nolan Bushnell lanza <strong>Pong</strong> (Atari), mientras la Magnavox Odyssey se convierte en la primera consola doméstica. Comienza la monetización del ocio digital.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>1980: La Edad de Oro y la Crisis del 83</h3>
+                <p>Pac-Man domina el mundo. Sin embargo, la saturación del mercado lleva al "Crash de 1983", del cual Nintendo rescataría a la industria con la NES en 1985.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>1990-2000: La Revolución de las Tres Dimensiones</h3>
+                <p>La llegada de PlayStation (Sony), Nintendo 64 y el auge del PC Gaming con motores como <em>Id Tech</em> (DOOM, Quake). Nacen los estándares modernos de control y narrativa.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2010-2020: Conectividad y Realismo Extremo</h3>
+                <p>El nacimiento del Cloud Gaming, Microtransacciones y el trazado de rayos (Ray Tracing). Los videojuegos se convierten en la industria de entretenimiento más lucrativa del planeta, superando al cine y la música combinados.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2026: La Frontera de la IA Generativa</h3>
+                <p>Actualidad. La integración de LLMs para NPCs con diálogos infinitos y la renderización por IA (DLSS 4.0) permiten mundos fotorrealistas en tiempo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EL ARTÍCULO UNIVERSITARIO AAA VS AA -->
+    <section class="container reveal" id="articulos">
+        <h2 class="section-title">Análisis Estructural: Videojuegos AA vs AAA</h2>
+        <div style="background: var(--glass); padding: 40px; border-radius: 20px;">
+            <h3>La Taxonomía del Presupuesto y el Riesgo</h3>
+            <p>En la economía política del software de entretenimiento, la distinción entre <strong>AAA (Triple A)</strong> y <strong>AA (Doble A)</strong> no solo reside en la calidad gráfica, sino en la estructura de capital, el modelo de distribución y el "Pipeline" de producción.</p>
+            
+            <br>
+            <h4>Videojuegos AAA: Los Blockbusters del Silicio</h4>
+            <p>Un videojuego AAA representa la cúspide del desarrollo industrial. Estos proyectos, gestionados por gigantes como <strong>Rockstar Games, Ubisoft o Sony Santa Monica</strong>, operan con presupuestos que oscilan entre los 80 y los 300 millones de dólares (llegando a 500 millones en casos como <em>Cyberpunk 2077</em> o <em>GTA VI</em>).</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Financiación:</strong> Dependen de grandes editoras (Publishers) y accionistas. El éxito es obligatorio para la supervivencia del estudio.</li>
+                <li><strong>Marketing:</strong> A menudo, el presupuesto de publicidad iguala o supera al de desarrollo.</li>
+                <li><strong>Tecnología:</strong> Uso intensivo de captura de movimiento (MoCap), escaneo facial de alta fidelidad y motores propietarios como RAGE o Snowdrop.</li>
+            </ul>
+
+            <br>
+            <h4>Videojuegos AA: La Resistencia Creativa</h4>
+            <p>Los juegos AA ocupan el "Valle Medio". Son títulos con valores de producción profesionales pero equipos reducidos (50-100 personas). Ejemplos icónicos incluyen a <strong>Focus Entertainment, Spiders o Remedy</strong> (en sus inicios).</p>
+            <p>Su mayor ventaja es la <strong>libertad creativa</strong>. Al no tener que responder ante metas de ventas de 10 millones de copias para ser rentables, pueden permitirse mecánicas innovadoras o narrativas arriesgadas que un AAA evitaría por miedo al riesgo financiero.</p>
+        </div>
+    </section>
+
+    <!-- TOP 30 AAA PREVIEW (EJEMPLO DE FICHA PROFESIONAL) -->
+    <section class="container reveal" id="ranking">
+        <h2 class="section-title">Top 30 Videojuegos AAA (Selección Elite)</h2>
+        <div class="game-grid">
+            
+            <!-- TARJETA 1: RED DEAD REDEMPTION 2 -->
+            <div class="game-card">
+                <img src="https://images.alphacoders.com/974/974395.jpg" alt="RDR2">
+                <div class="card-content">
+                    <span class="badge">Nº 1 - OBRA MAESTRA</span>
+                    <h3 style="margin-top: 10px;">Red Dead Redemption 2</h3>
+                    <p><strong>Estudio:</strong> Rockstar Games</p>
+                    <p><strong>Motor:</strong> RAGE Engine</p>
+                    <p><strong>Presupuesto:</strong> $540M (Estimado)</p>
+                    <hr style="margin: 15px 0; opacity: 0.2;">
+                    <p>Considerado el pináculo del mundo abierto. Con más de 300,000 animaciones y una narrativa que redefine el medio.</p>
+                    <div style="margin-top: 15px;">
+                        <i class="fas fa-star" style="color: gold;"></i> 97 Metacritic
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: ELDEN RING -->
+            <div class="game-card">
+                <img src="https://images8.alphacoders.com/122/1221373.jpg" alt="Elden Ring">
+                <div class="card-content">
+                    <span class="badge">Nº 2 - GOTY 2022</span>
+                    <h3 style="margin-top: 10px;">Elden Ring</h3>
+                    <p><strong>Estudio:</strong> FromSoftware</p>
+                    <p><strong>Publisher:</strong> Bandai Namco</p>
+                    <p><strong>Ventas:</strong> 25M+ Copias</p>
+                    <hr style="margin: 15px 0; opacity: 0.2;">
+                    <p>La evolución del género Soulslike hacia un mundo abierto orgánico sin marcadores de mapa intrusivos.</p>
+                    <div style="margin-top: 15px;">
+                        <i class="fas fa-star" style="color: gold;"></i> 96 Metacritic
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 3: THE LAST OF US PART II -->
+            <div class="game-card">
+                <img src="https://images7.alphacoders.com/105/1053155.png" alt="TLOU2">
+                <div class="card-content">
+                    <span class="badge">Nº 3 - NARRATIVA</span>
+                    <h3 style="margin-top: 10px;">The Last of Us Part II</h3>
+                    <p><strong>Estudio:</strong> Naughty Dog</p>
+                    <p><strong>Motor:</strong> Propietario</p>
+                    <p><strong>Tecnología:</strong> MoCap Avanzado</p>
+                    <hr style="margin: 15px 0; opacity: 0.2;">
+                    <p>Un estudio crudo sobre la violencia y el trauma con el mayor nivel de detalle técnico en consolas.</p>
+                    <div style="margin-top: 15px;">
+                        <i class="fas fa-star" style="color: gold;"></i> 93 Metacritic
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="container">
+            <h2 class="logo">GAMEVERSE</h2>
+            <p>El portal definitivo creado por expertos para leyendas.</p>
+            <div style="margin: 30px 0;">
+                <p><strong>Autores:</strong> Nasly Saray Medina & Sebastian Hither</p>
+                <p><strong>Contacto:</strong> <a href="mailto:sebastianhither@gmail.com" style="color: var(--neon-blue);">sebastianhither@gmail.com</a></p>
+            </div>
+            <div class="social-links">
+                <i class="fab fa-twitter fa-2x" style="margin: 0 15px;"></i>
+                <i class="fab fa-youtube fa-2x" style="margin: 0 15px;"></i>
+                <i class="fab fa-twitch fa-2x" style="margin: 0 15px;"></i>
+            </div>
+            <p style="margin-top: 50px; font-size: 0.8rem; color: var(--text-dim);">© 2026 GAMEVERSE. Todos los derechos reservados. No se permite la reproducción sin autorización.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Animation
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Simulación de buscador en tiempo real
+        console.log("Sistema GAMEVERSE cargado. Buscador listo.");
+    </script>
+</body>
+</html>
